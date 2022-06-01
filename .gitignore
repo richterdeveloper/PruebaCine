@@ -17,6 +17,7 @@ bcp.xccheckout
 bcp.xcscmblueprint
 mockserver/target
 .classpath
+Podfile.lock
 org.eclipse.jdt.core.prefs
 IDEWorkspaceChecks.plist
 Pods
