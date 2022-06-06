@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19455" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19454"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Movies View Controller-->
+        <scene sceneID="s0d-6b-0kx">
+            <objects>
+                <viewController storyboardIdentifier="MoviesViewController" id="Y6W-OH-hqX" customClass="MoviesViewController" customModule="PruebaCine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5EZ-qb-Rvc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lista de Pelas" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tXN-7B-2VA">
+                                <rect key="frame" x="107.5" y="273.5" width="105" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lj5-qa-yfA">
+                                <rect key="frame" x="126.5" y="374" width="67" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="31" id="P2e-SA-VqG"/>
+                                    <constraint firstAttribute="width" constant="67" id="ZoD-tK-hmO"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <connections>
+                                    <action selector="tapToDetail:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="e1n-LC-hlW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="tXN-7B-2VA" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="3gr-wr-tpw"/>
+                            <constraint firstItem="lj5-qa-yfA" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="Ffz-Ya-TWB"/>
+                            <constraint firstItem="lj5-qa-yfA" firstAttribute="top" secondItem="tXN-7B-2VA" secondAttribute="bottom" constant="79.5" id="Mz2-8t-dc8"/>
+                            <constraint firstItem="tXN-7B-2VA" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="NOr-lG-FsT"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="Z67-ZH-pgw"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="127.5" y="79.225352112676063"/>
+        </scene>
+        <!--Detail Movie View Controller-->
+        <scene sceneID="6PK-GW-aOo">
+            <objects>
+                <viewController storyboardIdentifier="DetailMovieViewController" id="rdK-Ex-zf1" customClass="DetailMovieViewController" customModule="PruebaCine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="75f-qA-1ml">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detalle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u9q-fi-rtg">
+                                <rect key="frame" x="133.5" y="273.5" width="53" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="IXz-er-1yq"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="u9q-fi-rtg" firstAttribute="centerY" secondItem="IXz-er-1yq" secondAttribute="centerY" id="99z-u1-yBM"/>
+                            <constraint firstItem="u9q-fi-rtg" firstAttribute="centerX" secondItem="IXz-er-1yq" secondAttribute="centerX" id="RMl-X3-ObC"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2pZ-Pc-Drs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="977" y="78"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

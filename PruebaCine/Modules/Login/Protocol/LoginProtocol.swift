@@ -7,22 +7,27 @@
 
 import Foundation
 
-protocol LoginViewProtocol {
+protocol LoginConfiguratorProtocol {
     
+    func configure(viewController: LoginViewController)
+}
+
+protocol LoginViewProtocol: AnyObject {
     
+    func showBasicAlert(title:String?, message: String?)
 }
 
 protocol LoginPresenterProtocol {
     
-    
+    func goToValidateUser(userName: String, userPassword: String)
 }
 
 protocol LoginInteractorProtocol {
     
-    
+    func getUserValidation(userLoginInfo: UserRequest) -> Bool
 }
 
 protocol LoginRouterProtocol {
     
-    
+    func goToMovies(originViewController: LoginViewController)
 }

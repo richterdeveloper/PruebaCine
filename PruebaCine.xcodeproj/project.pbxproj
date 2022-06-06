@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		81646A38284D65CD00177E84 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A37284D65CD00177E84 /* Constants.swift */; };
+		81646A3A284D686A00177E84 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A39284D686A00177E84 /* UserData.swift */; };
+		81646A3D284D6BCF00177E84 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A3C284D6BCF00177E84 /* UserRequest.swift */; };
+		81646A40284D80CE00177E84 /* LoginConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A3F284D80CE00177E84 /* LoginConfigurator.swift */; };
+		81646A42284D87E400177E84 /* MoviesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A41284D87E400177E84 /* MoviesViewController.swift */; };
+		81646A44284D882000177E84 /* Movies.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81646A43284D882000177E84 /* Movies.storyboard */; };
+		81646A46284DC48500177E84 /* DetailMovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A45284DC48500177E84 /* DetailMovieViewController.swift */; };
+		81EB4993284C141F0055DC0A /* ConnectionManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81EB4992284C141F0055DC0A /* ConnectionManagerProtocol.swift */; };
 		81F8D2F62846FCBD00420F22 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8D2F52846FCBD00420F22 /* AppDelegate.swift */; };
 		81F8D2F82846FCBD00420F22 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8D2F72846FCBD00420F22 /* SceneDelegate.swift */; };
 		81F8D2FA2846FCBD00420F22 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81F8D2F92846FCBD00420F22 /* ViewController.swift */; };
@@ -45,6 +53,14 @@
 /* Begin PBXFileReference section */
 		3D30C9B06B3CE88F959E6D1E /* Pods_PruebaCine.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PruebaCine.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		616B87112853B3E7270FA03A /* Pods-PruebaCine.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PruebaCine.debug.xcconfig"; path = "Target Support Files/Pods-PruebaCine/Pods-PruebaCine.debug.xcconfig"; sourceTree = "<group>"; };
+		81646A37284D65CD00177E84 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		81646A39284D686A00177E84 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
+		81646A3C284D6BCF00177E84 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
+		81646A3F284D80CE00177E84 /* LoginConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginConfigurator.swift; sourceTree = "<group>"; };
+		81646A41284D87E400177E84 /* MoviesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewController.swift; sourceTree = "<group>"; };
+		81646A43284D882000177E84 /* Movies.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Movies.storyboard; sourceTree = "<group>"; };
+		81646A45284DC48500177E84 /* DetailMovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailMovieViewController.swift; sourceTree = "<group>"; };
+		81EB4992284C141F0055DC0A /* ConnectionManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManagerProtocol.swift; sourceTree = "<group>"; };
 		81F8D2F22846FCBD00420F22 /* PruebaCine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PruebaCine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81F8D2F52846FCBD00420F22 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81F8D2F72846FCBD00420F22 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -101,6 +117,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		81646A3B284D6B9F00177E84 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				81646A3C284D6BCF00177E84 /* UserRequest.swift */,
+			);
+			path = Request;
+			sourceTree = "<group>";
+		};
+		81646A3E284D80A100177E84 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				81646A3F284D80CE00177E84 /* LoginConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		81EB4991284C13EB0055DC0A /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				81EB4992284C141F0055DC0A /* ConnectionManagerProtocol.swift */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
 		81F8D2E92846FCBD00420F22 = {
 			isa = PBXGroup;
 			children = (
@@ -127,7 +167,7 @@
 			isa = PBXGroup;
 			children = (
 				81F8D32D2846FE7C00420F22 /* General */,
-				81F8D32A2846FDCC00420F22 /* Network */,
+				81F8D32A2846FDCC00420F22 /* Data */,
 				81F8D3292846FDB500420F22 /* Modules */,
 				81F8D3282846FDA400420F22 /* Model */,
 				81F8D2F52846FCBD00420F22 /* AppDelegate.swift */,
@@ -161,6 +201,8 @@
 		81F8D3282846FDA400420F22 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				81646A3B284D6B9F00177E84 /* Request */,
+				81646A39284D686A00177E84 /* UserData.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -174,16 +216,18 @@
 			path = Modules;
 			sourceTree = "<group>";
 		};
-		81F8D32A2846FDCC00420F22 /* Network */ = {
+		81F8D32A2846FDCC00420F22 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				81EB4991284C13EB0055DC0A /* Connection */,
 			);
-			path = Network;
+			path = Data;
 			sourceTree = "<group>";
 		};
 		81F8D32B2846FDF500420F22 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				81646A3E284D80A100177E84 /* Configurator */,
 				81F8D3382846FFB100420F22 /* Protocol */,
 				81F8D3372846FFA300420F22 /* Router */,
 				81F8D3342846FEE700420F22 /* Presenter */,
@@ -202,6 +246,7 @@
 				81F8D3302846FEAA00420F22 /* Presenter */,
 				81F8D32F2846FE9400420F22 /* Interactor */,
 				81F8D32E2846FE8F00420F22 /* View */,
+				81646A43284D882000177E84 /* Movies.storyboard */,
 			);
 			path = Movies;
 			sourceTree = "<group>";
@@ -209,6 +254,7 @@
 		81F8D32D2846FE7C00420F22 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				81646A37284D65CD00177E84 /* Constants.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -216,6 +262,8 @@
 		81F8D32E2846FE8F00420F22 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				81646A41284D87E400177E84 /* MoviesViewController.swift */,
+				81646A45284DC48500177E84 /* DetailMovieViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,6 +454,7 @@
 				81F8D3052846FCC000420F22 /* LaunchScreen.storyboard in Resources */,
 				81F8D3022846FCC000420F22 /* Assets.xcassets in Resources */,
 				81F8D2FD2846FCBD00420F22 /* Login.storyboard in Resources */,
+				81646A44284D882000177E84 /* Movies.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -472,13 +521,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81646A40284D80CE00177E84 /* LoginConfigurator.swift in Sources */,
 				81F8D33C28470FD400420F22 /* LoginPresenter.swift in Sources */,
+				81646A38284D65CD00177E84 /* Constants.swift in Sources */,
 				81F8D2FA2846FCBD00420F22 /* ViewController.swift in Sources */,
 				81F8D3002846FCBD00420F22 /* PruebaCine.xcdatamodeld in Sources */,
 				81F8D33E28470FE300420F22 /* LoginProtocol.swift in Sources */,
 				81F8D2F62846FCBD00420F22 /* AppDelegate.swift in Sources */,
+				81646A3A284D686A00177E84 /* UserData.swift in Sources */,
 				81F8D33A28470FB900420F22 /* LoginViewController.swift in Sources */,
 				81F8D34028470FF200420F22 /* LoginRouter.swift in Sources */,
+				81EB4993284C141F0055DC0A /* ConnectionManagerProtocol.swift in Sources */,
+				81646A42284D87E400177E84 /* MoviesViewController.swift in Sources */,
+				81646A46284DC48500177E84 /* DetailMovieViewController.swift in Sources */,
+				81646A3D284D6BCF00177E84 /* UserRequest.swift in Sources */,
 				81F8D2F82846FCBD00420F22 /* SceneDelegate.swift in Sources */,
 				81F8D34228470FFF00420F22 /* LoginInteractor.swift in Sources */,
 			);
