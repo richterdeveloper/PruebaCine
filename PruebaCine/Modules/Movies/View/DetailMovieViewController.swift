@@ -30,9 +30,44 @@ extension DetailMovieViewController {
     
     func setUp() {
         
+        // Average Rate
+        let averageRateTitleAttribute = [
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 12.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        let averageRateAttribute = [
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 12.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        let averageRateTitleAttString = NSAttributedString(string: "Puntuación: ", attributes: averageRateTitleAttribute)
+        
+        let averageRateAttString = NSAttributedString(string: "\((movieViewModel?.voteAverage)!)", attributes: averageRateAttribute)
+        
+        let averageRateFullAttString = NSMutableAttributedString()
+        averageRateFullAttString.append(averageRateTitleAttString)
+        averageRateFullAttString.append(averageRateAttString)
+        
+        // ReleaseDate
+        let releaseDateTitleAttribute = [
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue-Bold", size: 12.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        let releaseDateAttribute = [
+            NSAttributedString.Key.font: UIFont(name: "HelveticaNeue", size: 12.0)!,
+            NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+        let releaseDateTitleAttString = NSAttributedString(string: "Estreno: ", attributes: releaseDateTitleAttribute)
+        
+        let releaseDateAttString = NSAttributedString(string: "\((movieViewModel?.voteAverage)!)", attributes: releaseDateAttribute)
+        
+        let releaseDateFullAttString = NSMutableAttributedString()
+        releaseDateFullAttString.append(releaseDateTitleAttString)
+        releaseDateFullAttString.append(releaseDateAttString)
+        
+        
         titleLabel.text = movieViewModel?.title
-        voteAverageLabel.text = "\((movieViewModel?.voteAverage)!)"
-        releaseDateLabel.text = movieViewModel?.releaseDate
+        voteAverageLabel.attributedText = averageRateFullAttString
+        releaseDateLabel.attributedText = releaseDateFullAttString
         overviewLabel.text = movieViewModel?.overview
         
         if let url = URL(string: (movieViewModel?.poster)!) {
