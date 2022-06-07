@@ -9,5 +9,5 @@ import Foundation
 
 protocol ConnectionManagerProtocol {
     
-    
+    func getMovieList(handler: @escaping (MoviesResponse?, NSError?) -> Void)
 }
