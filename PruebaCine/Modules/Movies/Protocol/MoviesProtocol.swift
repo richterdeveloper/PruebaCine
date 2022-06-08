@@ -16,7 +16,6 @@ protocol MoviesViewProtocol: AnyObject {
     
     func showBasicAlert(title:String?, message: String?)
     func showMovieList()
-    
 }
 
 protocol MoviesPresenterProtocol {
@@ -26,13 +25,15 @@ protocol MoviesPresenterProtocol {
     func failGetMovieList(error: NSError)
     
     func getMovies() -> [MovieModel]
+    func getPage() -> Int
+    func getTotalPages() -> Int
     
     func goToDetail(movie: MovieModel)
 }
 
 protocol MoviesInteractorProtocol {
     
-    func getMovieList()
+    func getMovieList(page: Int)
 }
 
 protocol MoviesRouterProtocol {

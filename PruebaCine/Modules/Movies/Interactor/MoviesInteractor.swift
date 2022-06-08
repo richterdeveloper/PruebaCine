@@ -18,11 +18,11 @@ class MoviesInteractor: MoviesInteractorProtocol {
         self.presenter = presenter
     }
     
-    func getMovieList() {
+    func getMovieList(page: Int) {
         
         connectionManager = ConnectionManager()
         
-        connectionManager?.getMovieList() { (response, error) in
+        connectionManager?.getMovieList(page: page) { (response, error) in
             
             if let moviesResponse = response {
                 

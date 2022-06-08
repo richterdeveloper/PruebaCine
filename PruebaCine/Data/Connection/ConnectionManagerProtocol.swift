@@ -9,5 +9,5 @@ import Foundation
 
 protocol ConnectionManagerProtocol {
     
-    func getMovieList(handler: @escaping (MoviesResponse?, NSError?) -> Void)
+    func getMovieList(page: Int, handler: @escaping (MoviesResponse?, NSError?) -> Void)
 }

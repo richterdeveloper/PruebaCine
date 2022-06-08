@@ -25,12 +25,12 @@ class MoviesPresenter: MoviesPresenterProtocol {
     
     func getMovieList() {
         
-        interactor?.getMovieList()
+        interactor?.getMovieList(page: self.page + 1)
     }
     
     func didGetMovieList(movieList: MoviesResponse) {
         
-        self.movieList = movieList.results ?? []
+        self.movieList.append(contentsOf: movieList.results ?? [])
         self.totalPages = movieList.total_pages ?? 0
         page = movieList.page ?? 0
         
@@ -45,7 +45,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
     func goToDetail(movie: MovieModel) {
         
         let movieViewModel = MovieViewModel(title: movie.title,
-                                       poster: "\(Constants.ConnectionUrl.imageHostUrl)\(movie.poster_path!)",
+                                       poster: "\(Constants.ConnectionUrl.imageHostUrl)\(movie.poster_path ?? "")",
                                        voteAverage: movie.vote_average,
                                        releaseDate: movie.release_date,
                                        overview: movie.overview)
@@ -56,5 +56,15 @@ class MoviesPresenter: MoviesPresenterProtocol {
     func getMovies() -> [MovieModel] {
         
         return movieList
+    }
+    
+    func getPage() -> Int {
+        
+        return self.page
+    }
+    
+    func getTotalPages() -> Int {
+        
+        return self.totalPages
     }
 }

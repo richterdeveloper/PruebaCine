@@ -31,7 +31,7 @@ extension MoviesTableViewCell {
         
         movieTitleLabel.text = movie?.title ?? ""
         
-        if let url = URL(string: "\(Constants.ConnectionUrl.imageHostUrl)\((movie?.poster_path)!)") {
+        if let url = URL(string: "\(Constants.ConnectionUrl.imageHostUrl)\(movie?.poster_path ?? "")") {
             
             movieImage.kf.setImage(with: url, options: [.transition(.fade(0.5))])
         }

@@ -12,9 +12,9 @@ class ConnectionManager: ConnectionManagerProtocol {
     
     let baseUrl = "\(Constants.ConnectionUrl.baseUrl)"
     
-    func getMovieList(handler: @escaping (MoviesResponse?, NSError?) -> Void) {
+    func getMovieList(page: Int, handler: @escaping (MoviesResponse?, NSError?) -> Void) {
         
-        let url = "\(baseUrl)\(Constants.ConnectionUrl.moviesUrl)?page=1&api_key=\(Constants.ConnectionUrl.urlApiKey)"
+        let url = "\(baseUrl)\(Constants.ConnectionUrl.moviesUrl)?page=\(page)&api_key=\(Constants.ConnectionUrl.urlApiKey)"
         
         AF.session.configuration.timeoutIntervalForRequest = 10
         

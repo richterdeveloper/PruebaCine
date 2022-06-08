@@ -11,9 +11,13 @@ import MBProgressHUD
 class MoviesViewController: UIViewController {
 
     @IBOutlet weak var moviesTableView: UITableView!
+    @IBOutlet weak var bottomActivityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var bottomActivityHeightConstraint: NSLayoutConstraint!
     
     var presenter: MoviesPresenterProtocol?
     var configurator: MoviesConfiguratorProtocol?
+    
+    var isLoadingList = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,6 +28,8 @@ class MoviesViewController: UIViewController {
         DispatchQueue.main.async {
             MBProgressHUD.showAdded(to: self.view, animated: true)
         }
+        
+        moviesTableView.tableFooterView?.isHidden = true
         
         presenter?.getMovieList()
     }
@@ -70,6 +76,22 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
         
         return 70
     }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        
+        if self.presenter?.getPage() == self.presenter?.getTotalPages() {
+            
+            moviesTableView.tableFooterView?.isHidden = true
+            
+            return
+        }
+        
+        if (scrollView.contentOffset.y + scrollView.frame.size.height) >= scrollView.contentSize.height && !isLoadingList {
+            
+            isLoadingList = true
+            presenter?.getMovieList()
+        }
+    }
 }
 
 extension MoviesViewController: MoviesViewProtocol {
@@ -91,6 +113,8 @@ extension MoviesViewController: MoviesViewProtocol {
             MBProgressHUD.hide(for: self.view, animated: true)
         }
         
+        isLoadingList = false
         moviesTableView.reloadData()
+        moviesTableView.tableFooterView?.isHidden = false
     }
 }

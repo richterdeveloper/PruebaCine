@@ -24,6 +24,24 @@
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="03f-Yl-uJK">
                                 <rect key="frame" x="0.0" y="51" width="320" height="517"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <view key="tableFooterView" contentMode="scaleToFill" id="hmT-Bb-esS">
+                                    <rect key="frame" x="0.0" y="137" width="320" height="40"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <subviews>
+                                        <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="9Mr-Zc-QCJ">
+                                            <rect key="frame" x="150" y="10" width="20" height="20"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="20" id="Qfg-HH-QCa"/>
+                                                <constraint firstAttribute="width" constant="20" id="gsH-ah-1rR"/>
+                                            </constraints>
+                                        </activityIndicatorView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    <constraints>
+                                        <constraint firstItem="9Mr-Zc-QCJ" firstAttribute="centerX" secondItem="hmT-Bb-esS" secondAttribute="centerX" id="jfr-73-lCm"/>
+                                        <constraint firstItem="9Mr-Zc-QCJ" firstAttribute="centerY" secondItem="hmT-Bb-esS" secondAttribute="centerY" id="rYR-rx-GLy"/>
+                                    </constraints>
+                                </view>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MoviesTableViewCell" id="Jwt-8U-z46" customClass="MoviesTableViewCell" customModule="PruebaCine" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="320" height="70"/>
@@ -71,11 +89,11 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="03f-Yl-uJK" secondAttribute="bottom" id="Uzc-Gz-oJr"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="nnP-bi-YfR" secondAttribute="trailing" id="azt-WI-ppE"/>
                             <constraint firstItem="03f-Yl-uJK" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ggi-uJ-YKd"/>
                             <constraint firstItem="nnP-bi-YfR" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="iXd-Ru-lsa"/>
                             <constraint firstItem="03f-Yl-uJK" firstAttribute="top" secondItem="nnP-bi-YfR" secondAttribute="bottom" id="iXs-C2-edp"/>
-                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="03f-Yl-uJK" secondAttribute="bottom" id="ofs-Jm-fEq"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="03f-Yl-uJK" secondAttribute="trailing" id="tDz-CW-I0t"/>
                             <constraint firstItem="nnP-bi-YfR" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="xgc-53-Qul"/>
                         </constraints>
