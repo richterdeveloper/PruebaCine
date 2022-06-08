@@ -20,6 +20,9 @@
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="nnP-bi-YfR">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="51"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="Y6W-OH-hqX" id="dfs-9t-GiG"/>
+                                </connections>
                             </searchBar>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="70" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="03f-Yl-uJK">
                                 <rect key="frame" x="0.0" y="51" width="320" height="517"/>
@@ -100,6 +103,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="Z67-ZH-pgw"/>
                     <connections>
+                        <outlet property="footerActivityIndicator" destination="9Mr-Zc-QCJ" id="0wF-Cg-D4g"/>
+                        <outlet property="moviesSearchBar" destination="nnP-bi-YfR" id="kmd-v3-4nv"/>
                         <outlet property="moviesTableView" destination="03f-Yl-uJK" id="wcW-pc-Swp"/>
                     </connections>
                 </viewController>

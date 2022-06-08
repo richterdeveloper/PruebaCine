@@ -25,6 +25,10 @@ protocol MoviesPresenterProtocol {
     func failGetMovieList(error: NSError)
     
     func getMovies() -> [MovieModel]
+    func getSearchedMovies() -> [MovieModel]
+    func putNewSearchedMoview(movie: MovieModel)
+    func setSearchedMovies(movies: [MovieModel])
+    func clearSearchedMovies()
     func getPage() -> Int
     func getTotalPages() -> Int
     

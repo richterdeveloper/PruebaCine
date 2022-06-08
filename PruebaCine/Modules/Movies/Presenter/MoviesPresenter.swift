@@ -14,6 +14,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
     var router: MoviesRouterProtocol?
     
     var movieList: [MovieModel] = []
+    var searchMovieList: [MovieModel] = []
     var totalPages: Int = 0
     var page: Int = 0
     
@@ -31,6 +32,7 @@ class MoviesPresenter: MoviesPresenterProtocol {
     func didGetMovieList(movieList: MoviesResponse) {
         
         self.movieList.append(contentsOf: movieList.results ?? [])
+        self.searchMovieList.append(contentsOf: movieList.results ?? [])
         self.totalPages = movieList.total_pages ?? 0
         page = movieList.page ?? 0
         
@@ -56,6 +58,26 @@ class MoviesPresenter: MoviesPresenterProtocol {
     func getMovies() -> [MovieModel] {
         
         return movieList
+    }
+    
+    func getSearchedMovies() -> [MovieModel] {
+        
+        return searchMovieList
+    }
+    
+    func clearSearchedMovies() {
+        
+        searchMovieList.removeAll()
+    }
+    
+    func putNewSearchedMoview(movie: MovieModel) {
+        
+        searchMovieList.append(movie)
+    }
+    
+    func setSearchedMovies(movies: [MovieModel]) {
+        
+        self.searchMovieList = movies
     }
     
     func getPage() -> Int {

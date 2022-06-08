@@ -11,19 +11,29 @@ import MBProgressHUD
 class MoviesViewController: UIViewController {
 
     @IBOutlet weak var moviesTableView: UITableView!
-    @IBOutlet weak var bottomActivityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var bottomActivityHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var moviesSearchBar: UISearchBar!
+    @IBOutlet weak var footerActivityIndicator: UIActivityIndicatorView!
     
     var presenter: MoviesPresenterProtocol?
     var configurator: MoviesConfiguratorProtocol?
     
     var isLoadingList = false
+    var isSearching = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.configurator = MoviesConfigurator()
         configurator?.configure(viewController: self)
+        
+        let movieSearchToolBar = UIToolbar()
+        let doneBtn = UIBarButtonItem(title: "Listo", style: .plain, target: self, action: #selector(handleViewTap))
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        movieSearchToolBar.items = [flexSpace, flexSpace, doneBtn]
+        movieSearchToolBar.sizeToFit()
+        
+        moviesSearchBar.returnKeyType = .done
+        moviesSearchBar.showsCancelButton = true
         
         DispatchQueue.main.async {
             MBProgressHUD.showAdded(to: self.view, animated: true)
@@ -32,6 +42,34 @@ class MoviesViewController: UIViewController {
         moviesTableView.tableFooterView?.isHidden = true
         
         presenter?.getMovieList()
+    }
+    
+    @objc func handleViewTap() {
+        view.endEditing(true)
+    }
+}
+
+extension MoviesViewController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        presenter?.clearSearchedMovies()
+        
+        if let filteredMovies = presenter?.getMovies().filter({ ($0.title?.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current).contains(searchText.folding(options: [.caseInsensitive, .diacriticInsensitive], locale: .current)))! }) {
+            
+            presenter?.setSearchedMovies(movies: searchText.isEmpty ? presenter?.getMovies() ?? [] : filteredMovies)
+        }
+        
+        isSearching = true
+        
+        moviesTableView.reloadData()
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar)
+    {
+        searchBar.resignFirstResponder()
+        moviesSearchBar.endEditing(true)
+        isSearching = false
     }
 }
 
@@ -43,12 +81,15 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if let movies = presenter?.getMovies() {
+        if isSearching {
             
-            return movies.count
+            tableView.tableFooterView?.isHidden = true
+            footerActivityIndicator.stopAnimating()
+            
+            return presenter?.getSearchedMovies().count ?? 0
         }
         
-        return 0
+        return presenter?.getMovies().count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -66,9 +107,19 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        if let movie = presenter?.getMovies()[indexPath.row] {
+        
+        if isSearching {
             
-            presenter?.goToDetail(movie: movie)
+            if let movie = presenter?.getSearchedMovies()[indexPath.row] {
+                
+                presenter?.goToDetail(movie: movie)
+            }
+        } else {
+            
+            if let movie = presenter?.getMovies()[indexPath.row] {
+                
+                presenter?.goToDetail(movie: movie)
+            }
         }
     }
     
@@ -79,9 +130,10 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         
-        if self.presenter?.getPage() == self.presenter?.getTotalPages() {
+        if self.presenter?.getPage() == self.presenter?.getTotalPages() || isSearching {
             
             moviesTableView.tableFooterView?.isHidden = true
+            footerActivityIndicator.stopAnimating()
             
             return
         }
@@ -116,5 +168,6 @@ extension MoviesViewController: MoviesViewProtocol {
         isLoadingList = false
         moviesTableView.reloadData()
         moviesTableView.tableFooterView?.isHidden = false
+        footerActivityIndicator.startAnimating()
     }
 }
