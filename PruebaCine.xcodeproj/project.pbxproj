@@ -17,6 +17,7 @@
 		8136A595284EFDEE00DCE191 /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8136A594284EFDEE00DCE191 /* ConnectionManager.swift */; };
 		8136A598284F0D0F00DCE191 /* MoviesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8136A597284F0D0F00DCE191 /* MoviesTableViewCell.swift */; };
 		8136A59B284F257700DCE191 /* MovieViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8136A59A284F257700DCE191 /* MovieViewModel.swift */; };
+		813883A02852BE1C00DFB762 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8138839F2852BE1C00DFB762 /* DataManager.swift */; };
 		81646A38284D65CD00177E84 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A37284D65CD00177E84 /* Constants.swift */; };
 		81646A3A284D686A00177E84 /* UserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A39284D686A00177E84 /* UserData.swift */; };
 		81646A3D284D6BCF00177E84 /* UserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81646A3C284D6BCF00177E84 /* UserRequest.swift */; };
@@ -73,6 +74,7 @@
 		8136A594284EFDEE00DCE191 /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		8136A597284F0D0F00DCE191 /* MoviesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesTableViewCell.swift; sourceTree = "<group>"; };
 		8136A59A284F257700DCE191 /* MovieViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewModel.swift; sourceTree = "<group>"; };
+		8138839F2852BE1C00DFB762 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		81646A37284D65CD00177E84 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		81646A39284D686A00177E84 /* UserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserData.swift; sourceTree = "<group>"; };
 		81646A3C284D6BCF00177E84 /* UserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRequest.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 			isa = PBXGroup;
 			children = (
 				81EB4991284C13EB0055DC0A /* Connection */,
+				8138839F2852BE1C00DFB762 /* DataManager.swift */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -608,6 +611,7 @@
 				8136A598284F0D0F00DCE191 /* MoviesTableViewCell.swift in Sources */,
 				8136A59B284F257700DCE191 /* MovieViewModel.swift in Sources */,
 				8136A58A284EDAE200DCE191 /* MoviesPresenter.swift in Sources */,
+				813883A02852BE1C00DFB762 /* DataManager.swift in Sources */,
 				81F8D34228470FFF00420F22 /* LoginInteractor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -797,13 +801,14 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marcco.example.PruebaCine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marco.example.PruebaCine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -828,13 +833,14 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UIUserInterfaceStyle = Light;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.marcco.example.PruebaCine;
+				PRODUCT_BUNDLE_IDENTIFIER = com.marco.example.PruebaCine;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

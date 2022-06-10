@@ -15,7 +15,7 @@ protocol MoviesConfiguratorProtocol {
 protocol MoviesViewProtocol: AnyObject {
     
     func showBasicAlert(title:String?, message: String?)
-    func showMovieList()
+    func showMovieList(fromSaved: Bool)
 }
 
 protocol MoviesPresenterProtocol {
@@ -31,6 +31,8 @@ protocol MoviesPresenterProtocol {
     func clearSearchedMovies()
     func getPage() -> Int
     func getTotalPages() -> Int
+    
+    func saveMovie(movie: MovieModel)
     
     func goToDetail(movie: MovieModel)
 }

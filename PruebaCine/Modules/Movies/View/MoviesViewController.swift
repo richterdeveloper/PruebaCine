@@ -112,6 +112,7 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
             
             if let movie = presenter?.getSearchedMovies()[indexPath.row] {
                 
+                presenter?.saveMovie(movie: movie)
                 presenter?.goToDetail(movie: movie)
             }
         } else {
@@ -159,7 +160,7 @@ extension MoviesViewController: MoviesViewProtocol {
         self.present(alert, animated: true, completion: nil)
     }
     
-    func showMovieList() {
+    func showMovieList(fromSaved: Bool) {
         
         DispatchQueue.main.async {
             MBProgressHUD.hide(for: self.view, animated: true)
@@ -167,7 +168,15 @@ extension MoviesViewController: MoviesViewProtocol {
         
         isLoadingList = false
         moviesTableView.reloadData()
-        moviesTableView.tableFooterView?.isHidden = false
-        footerActivityIndicator.startAnimating()
+        
+        if fromSaved {
+            
+            moviesTableView.tableFooterView?.isHidden = true
+            footerActivityIndicator.stopAnimating()
+        } else {
+            
+            moviesTableView.tableFooterView?.isHidden = false
+            footerActivityIndicator.startAnimating()
+        }
     }
 }

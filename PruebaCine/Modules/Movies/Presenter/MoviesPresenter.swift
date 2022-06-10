@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreData
 
 class MoviesPresenter: MoviesPresenterProtocol {
     
@@ -36,10 +37,35 @@ class MoviesPresenter: MoviesPresenterProtocol {
         self.totalPages = movieList.total_pages ?? 0
         page = movieList.page ?? 0
         
-        moviesView.showMovieList()
+        moviesView.showMovieList(fromSaved: false)
     }
     
     func failGetMovieList(error: NSError) {
+        
+        movieList.removeAll()
+        searchMovieList.removeAll()
+        
+        let savedMovies = DataManager.shared.movies()
+        
+        if savedMovies.count > 0 {
+            
+            for savedMovie in savedMovies {
+                
+                var movie = MovieModel()
+                movie.id = savedMovie.id
+                movie.title = savedMovie.title
+                movie.original_title = savedMovie.original_title
+                movie.release_date = savedMovie.release_date
+                movie.overview = savedMovie.overview
+                movie.vote_average = savedMovie.vote_average
+                movie.poster_path = savedMovie.poster_path
+                
+                movieList.append(movie)
+                searchMovieList.append(movie)
+            }
+            
+            moviesView.showMovieList(fromSaved: true)
+        }
         
         moviesView.showBasicAlert(title: "Error", message: error.localizedDescription)
     }
@@ -77,7 +103,8 @@ class MoviesPresenter: MoviesPresenterProtocol {
     
     func setSearchedMovies(movies: [MovieModel]) {
         
-        self.searchMovieList = movies
+        self.searchMovieList.removeAll()
+        self.searchMovieList.append(contentsOf: movies)
     }
     
     func getPage() -> Int {
@@ -88,5 +115,19 @@ class MoviesPresenter: MoviesPresenterProtocol {
     func getTotalPages() -> Int {
         
         return self.totalPages
+    }
+    
+    func saveMovie(movie: MovieModel) {
+        
+        let movieToSave = DataManager.shared.movie(
+            id: movie.id ?? 0,
+            title: movie.title ?? "",
+            original_title: movie.original_title ?? "",
+            overview: movie.overview ?? "",
+            release_date: movie.release_date ?? "",
+            poster_path: movie.poster_path ?? "",
+            vote_average: movie.vote_average ?? 0)
+        
+        DataManager.shared.save()
     }
 }
