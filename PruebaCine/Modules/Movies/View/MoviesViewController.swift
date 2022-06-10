@@ -94,7 +94,8 @@ extension MoviesViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let movie = presenter?.getMovies()[indexPath.row]
+        
+        let movie = presenter?.getSearchedMovies()[indexPath.row]
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "MoviesTableViewCell", for: indexPath) as! MoviesTableViewCell
         
